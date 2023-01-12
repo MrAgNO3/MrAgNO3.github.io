@@ -15,22 +15,14 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <link rel="shortcut icon" href="/images/logo.svg">
-    
-<link rel="stylesheet" href="/font/css/fontawesome.min.css">
-
-    
-<link rel="stylesheet" href="/font/css/regular.min.css">
-
-    
-<link rel="stylesheet" href="/font/css/solid.min.css">
-
-    
-<link rel="stylesheet" href="/font/css/brands.min.css">
-
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/font/css/brands.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"mragno3.github.io","root":"/","language":"zh"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":"STHeiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":true,"background_img":"/images/bg.svg","description":"All work and no play make Jack a dull boy.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":true,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.0"}
+    KEEP.hexo_config = {"hostname":"mragno3.github.io","root":"/","language":"zh","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":"STHeiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"All work and no play make Jack a dull boy.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.0"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -45,10 +37,100 @@
     
 
     
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
 </div>
 
 
 <main class="page-container">
+
+    
+        
+<div class="first-screen-container flex-center fade-in-down-animation">
+    <div class="content flex-center">
+        
+            <div class="description hitokoto">
+                
+                    <div class="desc-item">All work and no play make Jack a dull boy.</div>
+                
+            </div>
+        
+        
+            <script async data-pjax
+                    src="https://v1.hitokoto.cn/?encode=js"
+            >
+            </script>
+        
+        
+            <div class="s-icon-list">
+                
+                    
+                        
+                        <div class="tooltip s-icon-item "
+                             data-content="GitHub"
+                             data-name="github"
+                             
+                        >
+                            
+                                
+                                    <a target="_blank" href="https://www.github.com/mragno3">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="tooltip s-icon-item tooltip-img clear"
+                             data-content="微信"
+                             data-name="weixin"
+                             data-img-url=https://cdn.jsdelivr.net/gh/mragno3/PicGo/blog/wechat.png
+                        >
+                            
+                                
+                                    <i class="fab fa-weixin"></i>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="tooltip s-icon-item tooltip-img clear"
+                             data-content="QQ"
+                             data-name="qq"
+                             data-img-url=https://cdn.jsdelivr.net/gh/mragno3/PicGo/blog/qq.png
+                        >
+                            
+                                
+                                    <i class="fab fa-qq"></i>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="tooltip s-icon-item "
+                             data-content="Email"
+                             data-name="email"
+                             
+                        >
+                            
+                                <a href="mailto:1743928515@qq.com">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            
+                        </div>
+                    
+                
+            </div>
+        
+    </div>
+</div>
 
     
 
@@ -56,9 +138,9 @@
 
         <div class="page-main-content-top">
             
-<header class="header-wrapper">
+<header class="header-wrapper transparent-1">
 
-    <div class="header-content">
+    <div class="header-content has-first-screen">
         <div class="left">
             
                 <a class="logo-image" href="/">
@@ -78,7 +160,7 @@
                             <a class="active"
                                href="/"
                             >
-                                首页
+                                首頁
                             </a>
                         </li>
                     
@@ -105,7 +187,7 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class="active"
-                       href="/">首页</a>
+                       href="/">首頁</a>
                 </li>
             
         </ul>
@@ -153,9 +235,26 @@
         </span>
         
         
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/TAG1/">TAG1</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/TAG2/">TAG2</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
     </div>
 
-    <a class="read-more" href="/2023/01/12/New-Blog/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/12/New-Blog/">繼續閱讀...&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -203,9 +302,21 @@ Life is like...
         </span>
         
         
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/hello-world/">hello world</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
     </div>
 
-    <a class="read-more" href="/2023/01/12/hello-world/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/12/hello-world/">繼續閱讀...&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -244,19 +355,19 @@ Life is like...
             
         </div>
         
-            <script async 
+            <script async data-pjax
                     src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <div class="website-count info-item">
                 
-                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    讀者&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
                 
                 
-                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    閱覽&nbsp;<span id="busuanzi_value_site_pv"></span>
                 
             </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.0</a>
+            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.0</a>
         </div>
         
         
@@ -324,7 +435,7 @@ Life is like...
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜索..."
+                       placeholder="搜尋..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
@@ -349,37 +460,57 @@ Life is like...
 
 
 
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/dark-light-toggle.js"></script>
 
 
 
 
-
-    
-<script src="/js/local-search.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/local-search.js"></script>
 
 
 
-
-    
-<script src="/js/code-block.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/code-block.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/lazyload.js"></script>
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
