@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -21,13 +21,125 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.0/source/font/css/brands.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"mragno3.github.io","root":"/","language":"zh","path":"search.json"}
+    KEEP.hexo_config = {"hostname":"mragno3.github.io","root":"/","language":"zh-CN","path":"search.json"}
     KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":"STHeiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"All work and no play make Jack a dull boy.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.0"}
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
-    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
-    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -160,7 +272,7 @@
                             <a class="active"
                                href="/"
                             >
-                                首頁
+                                首页
                             </a>
                         </li>
                     
@@ -187,7 +299,7 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class="active"
-                       href="/">首頁</a>
+                       href="/">首页</a>
                 </li>
             
         </ul>
@@ -254,7 +366,7 @@
         
     </div>
 
-    <a class="read-more" href="/2023/01/12/New-Blog/">繼續閱讀...&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/12/New-Blog/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -271,23 +383,7 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        内容测试作为在Github Page的第一篇内容，会对一些md的基本内容做一些测试
-表格
-
-
-1
-2
-3
-
-
-
-HaHa
-HaHa
-Hi
-
-
-All work and no play make Jack a dull boy
-Life is like...
+                        <h1 id="内容测试"><a href="#内容测试" class="headerlink" title="内容测试"></a>内容测试</h1><p>作为在Github Page的第一篇内容，会对一些md的基本内容做一些测试</p>
                     
                 </div>
 
@@ -296,7 +392,7 @@ Life is like...
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Jan 12 2023 19:07:12 GMT+0800">
+            <span class="home-article-date" data-date="Thu Jan 12 2023 20:37:54 GMT+0800">
                 2023-01-12
             </span>
         </span>
@@ -316,7 +412,7 @@ Life is like...
         
     </div>
 
-    <a class="read-more" href="/2023/01/12/hello-world/">繼續閱讀...&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/12/hello-world/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -346,7 +442,7 @@ Life is like...
         <div class="copyright-info info-item">
             &copy;
             
-                <span>2020</span> -
+                <span>2022</span> -
             
             2023
             
@@ -359,15 +455,15 @@ Life is like...
                     src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <div class="website-count info-item">
                 
-                    讀者&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
                 
                 
-                    閱覽&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
                 
             </div>
         
         <div class="theme-info info-item">
-            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.0</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.0</a>
         </div>
         
         
@@ -435,7 +531,7 @@ Life is like...
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜尋..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
