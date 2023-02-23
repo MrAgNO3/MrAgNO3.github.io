@@ -15,7 +15,7 @@
     
     <title>
         
-            满江红 |
+            数据安全大赛wp |
         
         AgNO3&#39;s blog
     </title>
@@ -259,7 +259,7 @@ mjx-container[display="true"] + br {
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">满江红</span>
+                <span class="title-hover-animation">数据安全大赛wp</span>
             </div>
 
             
@@ -279,13 +279,13 @@ mjx-container[display="true"] + br {
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-01-26 15:27:04</span>
-        <span class="mobile">2023-01-26 15:27</span>
+        <span class="pc">2023-02-23 20:50:01</span>
+        <span class="mobile">2023-02-23 20:50</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-26 16:04:42</span>
+        <span class="pc">2023-02-23 20:50:01</span>
     </span>
     
     
@@ -295,15 +295,7 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E5%BD%B1%E8%AF%84/">影评</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E7%94%B5%E5%BD%B1/">电影</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E6%BB%A1%E6%B1%9F%E7%BA%A2/">满江红</a>&nbsp;
+                        <a href="/tags/WriteUp/">WriteUp</a>&nbsp;
                     </li>
                 
             </ul>
@@ -313,12 +305,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>470 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>731 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -336,28 +328,33 @@ mjx-container[display="true"] + br {
             <div class="article-content keep-markdown-body">
                 
 
-                <p>满江红，2023年春节档电影，张艺谋导演的。</p>
-<img lazyload="" alt="202301312202103" data-src="https://agon3-pic.oss-cn-hangzhou.aliyuncs.com/blogpic/202301312202103.png" style="zoom:50%;">
+                <p>第一届数据安全大赛，收手机有点离谱。</p>
+<h2 id="数据算法题"><a href="#数据算法题" class="headerlink" title="数据算法题"></a>数据算法题</h2><h3 id="Address部分，用正则筛"><a href="#Address部分，用正则筛" class="headerlink" title="Address部分，用正则筛"></a>Address部分，用正则筛</h3><p>源数据中有很多离谱的小区名，地名等等，比如城中村，快递站，交叉口东北方…，所以表达式比较复杂，但最核心的部分就是“省市区镇乡县路”这样的</p>
+<p>表达式长这样</p>
+<p><img lazyload="" alt="202302232101330" data-src="https://agon3-pic.oss-cn-hangzhou.aliyuncs.com/blogpic/202302232101330.png"></p>
+<p>（Cyberchief和python re的表达式还不一样，挺操蛋的）</p>
+<p>但是这样有问题，会有一些奇怪的字段被匹配上，核心问题在前3行，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">.{1,8}[省市]</span></span><br><span class="line"><span class="string">(.{2,4}[市区])</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
 
-<p>一坨屎</p>
-<span id="more"></span>
+<p> 这部分，为了能直辖市，所以可以以”市”开头，但会出现一些奇怪的结果</p>
+<p>这里取结果的最后几个看看</p>
+<p><img lazyload="" alt="202302232102465" data-src="https://agon3-pic.oss-cn-hangzhou.aliyuncs.com/blogpic/202302232102465.png"></p>
+<p>所以把直辖市的情况分开来匹配</p>
+<p>非直辖市：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bds = <span class="string">'(.{2}省(.{1,8}自治区.{1})?(.{2,4}市)(.{1,8}自治.{1})?(.{2,7}[区县乡镇])?(.{1,8}自治.{1})?(.{1,7}[路道局院厅])?(.{1,5}[街道路])?(.{1,5}[号门区府寓])?(.{1,10}[大厦总部]{2})?(.{1,10}[小区公司园社花广市中心场机场]{2})?(.{1,10}[城厂方])?(.{1,4}街道)?(办.{1}处)?(航.{1}楼)?(.{1,6}[村园])?(居委会)?(.{1,6}[组局])?(.{1,4}[幢栋弄])?(.{1,4}单元)?([0-9]{2,5}[号]?)?(.{1,4}[层楼])?([0-9]{2,5}[室屋号房]?)?(房)?(快递点)?(.{1-3}座)?(.{1-3}座)?)'</span></span><br></pre></td></tr></table></figure>
+
+<p>直辖市</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bds = <span class="string">'([重庆上海天津北京]{2,4}[市](.{1,8}自治.{1})?(.{2,7}[区县乡镇])?(.{1,8}自治.{1})?(.{1,7}[路道局院厅])?(.{1,5}[街道路])?(.{1,5}[号门区府寓])?(.{1,10}[大厦总部]{2})?(.{1,10}[小区公司园社花广市中心场机场]{2})?(.{1,10}[城厂方])?(.{1,4}街道)?(办事处)?(航站楼)?(.{1,6}[村园])?(居委会)?(.{1,6}[组局])?(.{1,4}[幢栋弄])?(.{1,4}单元)?([0-9]{2,5}[号]?)?(.{1,4}[层楼])?([0-9]{2,5}[室屋号房]?)?(快递点)?(.{1-3}座)?(.{1-3}座)?)'</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="电影内容"><a href="#电影内容" class="headerlink" title="电影内容"></a>电影内容</h2><p>电影前10分钟就透露出一种粗制滥造的感觉，看了近一个小时才看懂导演是真的在讲一个故事。</p>
-<p>全片90%都在那寥寥几个场景里进行–。转场时放的bgm更是不明所以，吓人一跳。（似乎是改编的摇滚版豫剧，但和岳飞毫无关系）</p>
-<p>剧情更是一坨狗屎，一条直线叙事，悬疑了个屁，顶多是有几个转折。我没怎么玩过剧本杀不好作比喻，但剧情就是一坨狗屎。《满江红》根本不是岳飞遗言，强行煽情，更是为了硬凑历史，强行不杀秦桧。</p>
-<p>我看有评论说是，这个电影还算不错，是因为流浪地球2太优秀才不被认可。我不这么认为，不论同期的其他电影什么质量，客观来看，满江红电影就是依托答辩。整个电影，就像是个不知名的垃圾小导演拍的网络电影</p>
-<p>自己给自己打的标签是悬疑喜剧，但全片的笑点就靠沈腾两个字，作为一部春节档的“喜剧”电影，但内容却有很多色情暗示和血腥画面，</p>
-<h2 id="易烊千玺"><a href="#易烊千玺" class="headerlink" title="易烊千玺"></a>易烊千玺</h2><p>令我恶心，专门给他设一章</p>
-<p>全程板着个脸，演的一坨屎。不过我作为一个小镇做题家，没资格评论。</p>
-<h2 id="刷票房，偷票房"><a href="#刷票房，偷票房" class="headerlink" title="刷票房，偷票房"></a>刷票房，偷票房</h2><p>先不说连续13天排满的阴兵专场，还有掌握超时空放映技术的电影院</p>
-<img lazyload="" alt="202301312202689" data-src="https://agon3-pic.oss-cn-hangzhou.aliyuncs.com/blogpic/202301312202689.png" style="zoom:50%;">
+<h2 id="Crypto-weaksystem"><a href="#Crypto-weaksystem" class="headerlink" title="Crypto-weaksystem"></a>Crypto-weaksystem</h2><p>MT19937 随机数预测</p>
+<p>通过128bit的n可以直接分解。yafu不好调用的话，用sage的factor函数也行。</p>
+<p>sage代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> f61d <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> mt19937predictor <span class="keyword">import</span> MT19937Predictor </span><br><span class="line"></span><br><span class="line">io = remote(<span class="string">'39.106.48.123'</span>,<span class="number">37074</span>)</span><br><span class="line">p = io.recvuntil(<span class="string">b'XXXX: '</span>)</span><br><span class="line">io.sendline(prove(p))</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">mt = MT19937Predictor()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">312</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"Round <span class="subst">{t}</span>"</span>.center(<span class="number">100</span>))</span><br><span class="line">    io.recvuntil(<span class="string">b'&gt;'</span>)</span><br><span class="line">    io.sendline(<span class="string">b'1'</span>)</span><br><span class="line">    n = io.recvline()</span><br><span class="line">    n = <span class="built_in">eval</span>(n.decode().strip(<span class="string">'n = '</span>))</span><br><span class="line">    c = <span class="built_in">eval</span>(io.recvline().decode().strip(<span class="string">'c = '</span>))</span><br><span class="line">    p,q = [i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> factor(n)]</span><br><span class="line">    <span class="keyword">assert</span> p*q == n</span><br><span class="line">    phin = p*q-p-q+<span class="number">1</span></span><br><span class="line">    d = <span class="built_in">pow</span>(e,-<span class="number">1</span>,phin)</span><br><span class="line">    <span class="keyword">assert</span> e*d%phin == <span class="number">1</span></span><br><span class="line">    d = <span class="built_in">int</span>(d)</span><br><span class="line">    m = <span class="built_in">pow</span>(c,d,n)</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">pow</span>(m,e,n) == c</span><br><span class="line">    mt.setrandbits(m, <span class="number">64</span>)</span><br><span class="line">    io.sendlineafter(<span class="string">b'input m'</span>,<span class="built_in">str</span>(m).encode())</span><br><span class="line">    <span class="built_in">print</span>(io.recvline())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"Round <span class="subst">{t}</span>"</span>.center(<span class="number">100</span>))</span><br><span class="line">    <span class="built_in">print</span>(io.recvuntil(<span class="string">b'&gt;'</span>))</span><br><span class="line">    io.sendline(<span class="string">b'2'</span>)</span><br><span class="line">    n = io.recvline()</span><br><span class="line">    n = <span class="built_in">eval</span>(n.decode().strip(<span class="string">'n = '</span>))</span><br><span class="line">    c = <span class="built_in">eval</span>(io.recvline().decode().strip(<span class="string">'c = '</span>))</span><br><span class="line"></span><br><span class="line">    m = mt.getrandbits(<span class="number">64</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">pow</span>(m,e,n) == c:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'m error '</span>)</span><br><span class="line">    io.sendlineafter(<span class="string">b'input m'</span>,<span class="built_in">str</span>(m).encode())</span><br><span class="line">    <span class="built_in">print</span>(io.recvline())</span><br><span class="line"></span><br><span class="line">context.log_level=<span class="string">'debug'</span></span><br><span class="line">io.recvuntil(<span class="string">b'&gt;'</span>)</span><br><span class="line">io.sendline(<span class="string">b'4'</span>)</span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
 
-<p>（这个影院连续十三天都排好了并且满座）</p>
-<p><img lazyload="" alt="202301312203307" data-src="https://agon3-pic.oss-cn-hangzhou.aliyuncs.com/blogpic/202301312203307.png"></p>
-<p>（电影两个半小时，但同一影厅10分钟放一场）</p>
-<p>脸都不要了，电影烂的要死，还明目张胆的干这恶心事。</p>
+<p>库是这个，对于连续完整的32*nbit的情况，这个库一把梭就行了</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/kmyk/mersenne-twister-predictor.git">kmyk/mersenne-twister-predictor<i class="fas fa-external-link-alt"></i></a></p>
 
             </div>
 
@@ -367,16 +364,16 @@ mjx-container[display="true"] + br {
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">满江红</span>
+            <span class="type">本文标题</span>：<span class="content">数据安全大赛wp</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">AgNO3</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-01-26 15:27:04</span>
+            <span class="type">创建时间</span>：<span class="content">2023-02-23 20:50:01</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">2023/01/26/满江红/</span>
+            <span class="type">本文链接</span>：<span class="content">2023/02/23/数据安全大赛wp/</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -394,15 +391,7 @@ mjx-container[display="true"] + br {
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/%E5%BD%B1%E8%AF%84/">#影评</a>&nbsp;
-                        </li>
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E7%94%B5%E5%BD%B1/">#电影</a>&nbsp;
-                        </li>
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E6%BB%A1%E6%B1%9F%E7%BA%A2/">#满江红</a>&nbsp;
+                            <a href="/tags/WriteUp/">#WriteUp</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -411,29 +400,14 @@ mjx-container[display="true"] + br {
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/02/23/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9Bwp/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">数据安全大赛wp</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/01/12/image-test/"
+                               href="/2023/01/26/%E6%BB%A1%E6%B1%9F%E7%BA%A2/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">New Blog</span>
+                                <span class="post-nav-title-item">满江红</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -452,7 +426,7 @@ mjx-container[display="true"] + br {
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%BD%B1%E5%86%85%E5%AE%B9"><span class="nav-text">电影内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%93%E7%83%8A%E5%8D%83%E7%8E%BA"><span class="nav-text">易烊千玺</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E7%A5%A8%E6%88%BF%EF%BC%8C%E5%81%B7%E7%A5%A8%E6%88%BF"><span class="nav-text">刷票房，偷票房</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%97%E6%B3%95%E9%A2%98"><span class="nav-text">数据算法题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Address%E9%83%A8%E5%88%86%EF%BC%8C%E7%94%A8%E6%AD%A3%E5%88%99%E7%AD%9B"><span class="nav-text">Address部分，用正则筛</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-weaksystem"><span class="nav-text">Crypto-weaksystem</span></a></li></ol>
     </div>
 </div>
 
